@@ -1,6 +1,24 @@
 import connectDB from "@/lib/dbConnect";
 import { StudentModel } from "@/models/Student";
 import { NextResponse } from "next/server";
+import Cors from 'cors';
+
+const cors = Cors({ 
+  methods: ['GET', 'HEAD', 'POST', 'DELETE', 'PUT'], 
+  origin: 'https://next-js-crud-5p1kjlxeg-blackdarths-projects.vercel.app'
+});
+
+function runMiddleware(req, res, fn) { 
+  return new Promise((resolve, reject) => { 
+    fn(req, res, (result) => { 
+      if (result instanceof Error) { 
+      return reject(result); 
+    } 
+    return resolve(result); 
+  });
+ });
+}
+
 
 //Mostrar un documento
 export const GET = async (request, { params }) => {

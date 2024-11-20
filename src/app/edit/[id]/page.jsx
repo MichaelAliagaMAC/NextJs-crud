@@ -1,7 +1,7 @@
 "use client";
 import Form from "@/components/Form";
 import { useRouter } from "next/navigation";
-const uri = "http://localhost:3000/api/student";
+const uri = process.env.NEXT_PUBLIC_API_URI || "http://localhost:3000/api/student";
 
 const getDataById = async (id) => {
   try {

@@ -3,7 +3,7 @@ import BtnDelete from "./BtnDelete";
 
 const getData = async () => {
   try {
-    const response = await fetch(`${process.env.URI}`, { cache: "no-store" });
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URI}`, { cache: "no-store" });
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
